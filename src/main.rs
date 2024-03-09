@@ -1,4 +1,5 @@
-use pdf_merger_lig;
+mod merger;
+
 use std::error::Error;
 use std::fs::File;
 
@@ -10,7 +11,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         "tests/pdf_samples/in/pdf4.pdf",
     ]);
 
-    match pdf_merger_lig::merge_pdfs(&paths) {
+    match merger::merge_pdfs(&paths) {
         Ok(mut merged_document) => {
             save_document(&mut merged_document)?;
         }
